@@ -1,3 +1,4 @@
+package MainCore;
 
 public class Person {
     private String name;
