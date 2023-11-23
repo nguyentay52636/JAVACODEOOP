@@ -1,3 +1,5 @@
+import MainCore.Person;
+
 public class Employee extends Person {
     private String idEmployee;
     private int daysOff;
