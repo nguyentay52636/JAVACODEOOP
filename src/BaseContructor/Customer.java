@@ -7,8 +7,6 @@ public class Customer extends Person {
     private int numberOfCustomers;
     private ArrayList<Product> order;
 
-<<<<<<< HEAD
-=======
     public Customer(String name, String telephoneNumber, int age, String address, String gender, boolean customerType,
             int numberOfCustomers, ArrayList<Product> order) {
         super(name, telephoneNumber, age, address, gender);
@@ -41,5 +39,4 @@ public class Customer extends Person {
         this.order = order;
     }
 
->>>>>>> Tay
 }
