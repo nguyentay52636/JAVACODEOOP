@@ -3,7 +3,10 @@ package Object;
 enum Size {
     SMALL, MEDIUM, LARGE;
 }
-
+/*1. Bàn: Quán có nhiều bàn được đánh số thứ tự theo cách sắp xếp của quản
+lý. Có 3 loại bàn bàn theo số chỗ ngồi: 2, 4 và 8 chỗ. Khách hàng không được
+tự ý chuyển chỗ bàn ghế.
+ */
 public class Table {
     private int tableNumber;
     private String tableSize;
