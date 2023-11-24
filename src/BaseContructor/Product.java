@@ -1,3 +1,5 @@
+package BaseContructor;
+
 public class Product {
     private int idProduct;
     private String name;

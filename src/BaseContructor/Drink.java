@@ -1,3 +1,4 @@
+package BaseContructor
 public class Drink extends Product {
     private boolean ice;
     private int[] size;

@@ -25,4 +25,11 @@ public class Memu {
         this.price = price;
     }
 
+    public void getDataMenu() {
+
+    }
+
+    public static void main(String[] args) {
+
+    }
 }

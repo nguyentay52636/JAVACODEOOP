@@ -1,3 +1,5 @@
+package BaseContructor;
+
 import MainCore.Person;
 
 public class Employee extends Person {

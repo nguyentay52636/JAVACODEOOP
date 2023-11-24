@@ -1,6 +1,9 @@
+package HandleList;
+
 import java.util.ArrayList;
 
 import MainCore.Person;
+import BaseContructor.Product;
 
 public class ListProduct extends Product {
     ArrayList<Person> listPerson = new ArrayList<>();
