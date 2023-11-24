@@ -2,11 +2,11 @@ package MainCore;
 
 public class Memu {
     private String name;
-    private int Price;
+    private int price;
 
     public Memu(String name, int price) {
         this.name = name;
-        Price = price;
+        this.price = price;
     }
 
     public String getName() {
@@ -14,7 +14,7 @@ public class Memu {
     }
 
     public int getPrice() {
-        return Price;
+        return price;
     }
 
     public void setName(String name) {
@@ -22,7 +22,7 @@ public class Memu {
     }
 
     public void setPrice(int price) {
-        Price = price;
+        this.price = price;
     }
 
 }
