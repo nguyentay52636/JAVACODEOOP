@@ -4,6 +4,8 @@ package BaseContructor;
 tại chỗ hay mang đi, nếu khách dùng tại chỗ số lượng khách hàng và chọn
 bàn phù hợp.
  */
+import BaseContructor.Customer;
+
 public class Order {
 
 }
