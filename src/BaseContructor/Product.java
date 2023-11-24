@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 public class Product {
     private int idProduct;
     private String name;
@@ -47,4 +45,3 @@ public class Product {
     }
 
 }
->>>>>>> Tay

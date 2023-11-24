@@ -1,0 +1,84 @@
+{
+  "Cà Phê Đen": 25000,
+  "Cappuccino": 35000,
+  "Espresso": 30000,
+  "Latte": 32000,
+  "Mocha": 38000,
+
+  "Trà Đen": 20000,
+  "Trà Xanh": 22000,
+  "Trà Ổi": 25000,
+  "Trà Chanh": 23000,
+
+  "Nước Ép Cà Rốt": 28000,
+  "Nước Ép Cam": 30000,
+  "Nước Ép Táo": 26000,
+  "Nước Ép Lựu": 32000,
+
+  "Sinh Tố Dâu": 35000,
+  "Sinh Tố Chuối": 30000,
+  "Sinh Tố Mango": 38000,
+  "Sinh Tố Dưa Lưới": 32000,
+
+  "Smoothie Hạt Dẻ Cười": 40000,
+  "Smoothie Protein": 42000,
+  "Smoothie Trái Cây Tổng Hợp": 38000,
+
+  "Nước Detox Cam và Dứa": 35000,
+  "Nước Detox Nho và Mâm Xôi": 33000,
+  "Nước Detox Dưa Leo và Dưa Hấu": 36000,
+
+  "Cà Phê Đá Xay": 38000,
+  "Caramel Macchiato Đá Xay": 42000,
+  "Choco Chip Frappe": 40000,
+
+  "Nước Ngọt Lạnh": 18000,
+  "Soda Chanh": 20000,
+  "Nước Ngọt Đen": 22000,
+
+  "Mojito": 45000,
+  "Martini": 48000,
+  "Margarita": 50000,
+  "Long Island Iced Tea": 52000,
+
+  "Rượu Vang Đỏ": 55000,
+  "Rượu Vang Trắng": 58000,
+  "Rượu Whisky": 60000,
+  "Rượu Rum": 56000,
+
+  "Coca Cola": 15000,
+  "Sprite": 15000,
+  "Fanta": 15000,
+
+  "Nước Suối": 10000,
+  "Nước Tinh Khiết": 12000,
+  "Nước Lọc": 8000,
+
+  "Kem Vani": 12000,
+  "Kem Sô Cô La": 15000,
+  "Kem Dâu": 13000,
+  "Kem Mặn": 14000,
+
+  "Bánh Ngọt Hạt Nho": 18000,
+  "Bánh Cookies Sô Cô La": 20000,
+  "Bánh Tiramisu": 22000,
+
+  "Đường Trắng": 1000,
+  "Đường Nâu": 1500,
+  "Đường Hạt": 2000,
+
+  "Syrup Vani": 3000,
+  "Syrup Caramel": 2500,
+  "Syrup Chocolate": 2800,
+
+  "Đá Viên": 2000,
+  "Đá Nhuyễn": 2500,
+
+  "Sô Cô La Nóng": 30000,
+  "Bạc Hà Cacao": 35000,
+  "Trà Ấm": 25000,
+
+  "Soda Dưa Hấu": 18000,
+  "Smoothie Dưa Lưới": 20000,
+  "Trà Lựu Lạnh": 22000
+}
