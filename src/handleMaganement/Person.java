@@ -1,10 +1,11 @@
-package MainCore;
+package handleMaganement;
+
 
 public class Person {
     private String name;
     private String telephoneNumber;
     private int age;
-    private String address;
+    protected String address;
     private String gender;
 
     public Person(String name, String telephoneNumber, int age, String address, String gender) {

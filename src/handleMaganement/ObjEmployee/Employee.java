@@ -1,11 +1,11 @@
-package BaseContructor;
+package handleMaganement.ObjEmployee;
 
-import MainCore.Person;
+import handleMaganement.Person;
 
 public class Employee extends Person {
     private String idEmployee;
     private int daysOff;
-    private int dayOfWork;
+    protected int dayOfWork;
 
     public Employee(String name, String telephoneNumber, int age, String address, String gender, String idEmployee,
             int daysOff, int dayOfWork) {
