@@ -28,6 +28,18 @@ public class OrderEmployee extends Employee {
         this.scanner = scanner;
     }
 
+    public OrderEmployee() {
+        // Gọi constructor của superclass (Employee) bằng từ khóa super
+        super(null, null, 0, null, null, null, 0, 0); // Chú ý: bạn cần thay thế các giá trị mặc định
+        this.bills = new Bill[100];
+        this.numOfBills = 0;
+        this.isDineIn = false;
+        this.numCustomers = 0;
+        this.selectedTable = null;
+        this.Status = null;
+        this.scanner = new Scanner(System.in);
+    }
+
     public Bill[] getBills() {
         return bills;
     }
@@ -165,7 +177,7 @@ public class OrderEmployee extends Employee {
                 case 2:
                     // Thực hiện thêm/sửa đổi món
                     System.out.println("Nhập mã sản phẩm mới: ");
-                    String newProductCode2 = scanner.nextLine();
+                    String newProductCode2 = scanner.next();
                     System.out.println("Nhập số lượng mới: ");
                     int newQuantity2 = scanner.nextInt();
                     // Tìm sản phẩm trong đơn hàng và thêm/sửa đổi
@@ -182,9 +194,9 @@ public class OrderEmployee extends Employee {
                     if (!found) {
 
                         // Thêm sản phẩm mới vào đơn hàng
-
                         System.out.print("Nhập mã sản phẩm mới: ");
-                        // String newProductCode = scanner.nextLine();
+                        String newProductCode3 = scanner.next();
+
                         // kiem tra san pham ton tai khong
 
                         System.out.println("Thêm món mới thành công.");

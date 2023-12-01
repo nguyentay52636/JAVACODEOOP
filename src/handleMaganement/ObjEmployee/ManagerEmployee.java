@@ -36,6 +36,5 @@ public class ManagerEmployee extends Employee {
         System.out.println("Chi tiết đơn hàng:");
         bill.displayBill();
     }
-    
 
 }

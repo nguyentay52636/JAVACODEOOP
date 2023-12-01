@@ -1,5 +1,3 @@
-package BaseContructor;
-
 public class Date {
     private int date;
     private int month;

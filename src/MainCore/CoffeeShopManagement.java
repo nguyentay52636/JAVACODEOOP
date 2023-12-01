@@ -2,6 +2,7 @@ package MainCore;
 
 import java.util.Scanner;
 
+import handleMaganement.ObjEmployee.OrderEmployee;
 import handleMaganement.ObjOrder.QuanNuoc;
 import handleMaganement.ObjTable.TableManager;
 import handleMaganement.ObjTable.TableMenu;
@@ -11,6 +12,7 @@ public class CoffeeShopManagement {
         Scanner scanner = new Scanner(System.in);
         TableManager tableManager = new TableManager(10);
         QuanNuoc quannuoc = new QuanNuoc();
+        OrderEmployee orderEmployee = new OrderEmployee();
 
         boolean flag = true;
         do {
@@ -36,6 +38,7 @@ public class CoffeeShopManagement {
 
                 case 2:
                     quannuoc.thucHienChucNang();
+
                     break;
                 case 3:
                     // Code quản lý sản phẩm

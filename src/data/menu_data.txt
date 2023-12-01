@@ -1,82 +1,10 @@
-Cà Phê Đen,25000,Medium,true,Coffee
-Cappuccino,35000,Medium,true,Coffee
-Espresso,30000,Small,true,Coffee
-Latte,32000,Medium,true,Coffee
-Mocha,38000,Medium,true,Coffee
-
-Trà Đen,20000,Medium,true,Tea
-Trà Xanh,22000,Medium,true,Tea
-Trà Ổi,25000,Medium,true,Tea
-Trà Chanh,23000,Medium,true,Tea
-
-Nước Ép Cà Rốt,28000,Medium,false,Juice
-Nước Ép Cam,30000,Medium,false,Juice
-Nước Ép Táo,26000,Medium,false,Juice
-Nước Ép Lựu,32000,Medium,false,Juice
-
-Sinh Tố Dâu,35000,Medium,true,Smoothie
-Sinh Tố Chuối,30000,Medium,true,Smoothie
-Sinh Tố Mango,38000,Medium,true,Smoothie
-Sinh Tố Dưa Lưới,32000,Medium,true,Smoothie
-
-Smoothie Hạt Dẻ Cười,40000,Medium,true,Smoothie
-Smoothie Protein,42000,Medium,true,Smoothie
-Smoothie Trái Cây Tổng Hợp,38000,Medium,true,Smoothie
-
-Nước Detox Cam và Dứa,35000,Medium,false,Detox
-Nước Detox Nho và Mâm Xôi,33000,Medium,false,Detox
-Nước Detox Dưa Leo và Dưa Hấu,36000,Medium,false,Detox
-
-Cà Phê Đá Xay,38000,Medium,true,Coffee
-Caramel Macchiato Đá Xay,42000,Medium,true,Coffee
-Choco Chip Frappe,40000,Medium,true,Coffee
-
-Nước Ngọt Lạnh,18000,Medium,true,Soda
-Soda Chanh,20000,Medium,true,Soda
-Nước Ngọt Đen,22000,Medium,true,Soda
-
-Mojito,45000,Medium,true,Cocktail
-Martini,48000,Medium,true,Cocktail
-Margarita,50000,Medium,true,Cocktail
-Long Island Iced Tea,52000,Medium,true,Cocktail
-
-Rượu Vang Đỏ,55000,Medium,true,Wine
-Rượu Vang Trắng,58000,Medium,true,Wine
-Rượu Whisky,60000,Medium,true,Spirit
-Rượu Rum,56000,Medium,true,Spirit
-
-Coca Cola,15000,Medium,true,Soda
-Sprite,15000,Medium,true,Soda
-Fanta,15000,Medium,true,Soda
-
-Nước Suối,10000,Medium,false,Water
-Nước Tinh Khiết,12000,Medium,false,Water
-Nước Lọc,8000,Medium,false,Water
-
-Kem Vani,12000,Medium,true,Add-on
-Kem Sô Cô La,15000,Medium,true,Add-on
-Kem Dâu,13000,Medium,true,Add-on
-Kem Mặn,14000,Medium,true,Add-on
-
-Bánh Ngọt Hạt Nho,18000,Medium,true,Dessert
-Bánh Cookies Sô Cô La,20000,Medium,true,Dessert
-Bánh Tiramisu,22000,Medium,true,Dessert
-
-Đường Trắng,1000,Small,false,Add-on
-Đường Nâu,1500,Small,false,Add-on
-Đường Hạt,2000,Small,false,Add-on
-
-Syrup Vani,3000,Small,true,Add-on
-Syrup Caramel,2500,Small,true,Add-on
-Syrup Chocolate,2800,Small,true,Add-on
-
-Đá Viên,2000,Medium,true,Add-on
-Đá Nhuyễn,2500,Medium,true,Add-on
-
-Sô Cô La Nóng,30000,Medium,true,Hot Beverage
-Bạc Hà Cacao,35000,Medium,true,Hot Beverage
-Trà Ấm,25000,Medium,true,Hot Beverage
-
-Soda Dưa Hấu,18000,Medium,true,Soda
-Smoothie Dưa Lưới,20000,Medium,true,Smoothie
-Trà Lựu Lạnh,22000,Medium,true,Iced Tea
+1, Cà phê sữa đá, Cà phê, 20000, true, Đá, true, Lớn, Không đường, Ghi chú cho cà phê sữa đá
+2, Trà đào, Trà, 15000, false, null, false, Nhỏ, null, Ghi chú cho trà đào
+3, Sinh tố việt quất, Sinh tố, 25000, false, null, true, Vừa, null, Ghi chú cho sinh tố việt quất
+4, Bạc xỉu, Cà phê, 18000, true, Sữa đặc, false, Nhỏ, Đường ít, Ghi chú cho bạc xỉu
+5, Nước lọc, Nước, 5000, false, null, false, Nhỏ, null, Ghi chú cho nước lọc
+6, Smoothie dưa hấu, Smoothie, 22000, true, Dưa hấu, true, Lớn, null, Ghi chú cho smoothie dưa hấu
+7, Soda chanh, Soda, 12000, true, Chanh, true, Vừa, null, Ghi chú cho soda chanh
+8, Kem vanilla, Kem, 15000, true, null, false, Nhỏ, null, Ghi chú cho kem vanilla
+9, Trà xanh matcha, Trà, 18000, false, null, true, Lớn, null, Ghi chú cho trà xanh matcha
+10, Caramel macchiato, Cà phê, 25000, true, Sữa đặc, true, Vừa, Caramel ít đường, Ghi chú cho caramel macchiato

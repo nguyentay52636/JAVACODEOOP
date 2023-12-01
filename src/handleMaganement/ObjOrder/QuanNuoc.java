@@ -1,5 +1,9 @@
 package handleMaganement.ObjOrder;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /*2. Thực đơn của quán bao gồm 4 loại nước uống chính: Trà sữa, cà phê, sinh
 tố và nước trái cây.
 3. Sản phẩm: Mỗi loại nước uống có nhiều lựa chọn gọi là sản phẩm của quán
@@ -24,7 +28,7 @@ public class QuanNuoc {
 
     public QuanNuoc() {
         // Constructor - Thêm các sản phẩm vào menu ở đây
-        themSanPhamVaoMenu();
+        themSanPhamVaoMenu("/home/huy/Documents/vsc/java/JAVACODEOOP/src/data/menu_data.txt");
     }
 
     public void thucHienChucNang() {
@@ -94,12 +98,35 @@ public class QuanNuoc {
     //
     // orderManager.addOrder(new Order(monsDaChon));
 
-    private void themSanPhamVaoMenu() {
-        // Thêm các sản phẩm vào menu ở đây
-        menu.add(new SanPham("1", "Trà sữa đường đen", "Trà sữa", 15000, true, "Không đường", true, "Nhỏ", null));
-        menu.add(new SanPham("2", "Trà sữa trân châu", "Trà sữa", 18000, true, "Trân châu trắng", true, "Vừa", null));
-        menu.add(new SanPham("3", "Cà phê đen", "Cà phê", 12000, true, "Đen không đường", true, "Lớn", null));
-        menu.add(new SanPham("4", "Sinh tố trái cây", "Sinh tố", 25000, false, null, true, "Nhỏ", null));
+    private void themSanPhamVaoMenu(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] attributes = line.split(",");
+
+                // Make sure the attributes array has at least 9 elements
+                if (attributes.length >= 9) {
+                    String maSanPham = attributes[0].trim();
+                    String tenSanPham = attributes[1].trim();
+                    String loai = attributes[2].trim();
+                    int gia = Integer.parseInt(attributes[3].trim());
+                    boolean coDa = Boolean.parseBoolean(attributes[4].trim());
+                    String moTaDa = attributes[5].trim();
+                    boolean coSize = Boolean.parseBoolean(attributes[6].trim());
+                    String size = attributes[7].trim();
+                    String ghiChu = attributes[8].trim();
+
+                    SanPham sanPham = new SanPham(maSanPham, tenSanPham, loai, gia, coDa, moTaDa, coSize, size,
+                            ghiChu);
+                    menu.add(sanPham);
+                } else {
+                    // Handle the case where the attributes array does not have enough elements
+                    System.out.println("Invalid data format: " + line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void hienThiMenu() {
