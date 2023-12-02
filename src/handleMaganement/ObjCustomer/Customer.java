@@ -13,6 +13,12 @@ public class Customer extends Person {
     private boolean customerType;
     private ArrayList<SanPham> order;
 
+    public Customer() {
+        super("", "", 0, "", ""); // Gọi constructor của lớp cha với các giá trị mặc định
+        this.customerType = true; // Giả sử mặc định là khách hàng uống tại chỗ
+        this.order = new ArrayList<>();
+    }
+
     public Customer(String name, String telephoneNumber, int age, String address, String gender, boolean customerType) {
         super(name, telephoneNumber, age, address, gender);
         this.customerType = customerType;
@@ -50,14 +56,23 @@ public class Customer extends Person {
         String customerName = scanner.nextLine();
         System.out.print("Nhập số điện thoại: ");
         String customerPhoneNumber = scanner.nextLine();
-
         System.out.print("Nhập tuổi: ");
         int age = scanner.nextInt();
+        
+     // Tiêu thụ ký tự mới (new line) còn lại
         scanner.nextLine();
+        
+        System.out.print("nhập address: ");
+        String address = scanner.nextLine();
         System.out.print("Nhập giới tính: ");
         String gender = scanner.nextLine();
-        Customer customer = new Customer(customerName, customerPhoneNumber, age, address, gender, true);
-
+        
+        Customer customer = new Customer();
+        customer.setName(customerName);
+        customer.setAddress(address);
+        customer.setGender(gender);
+        customer.setTelephoneNumber(customerPhoneNumber);
+        customer.setAge(age);
     }
 
 }
