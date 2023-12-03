@@ -22,4 +22,9 @@ public class Addon {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Addon: " + name + ", Giá: " + price + " VND";
+    }
 }

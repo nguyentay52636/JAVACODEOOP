@@ -1,27 +1,22 @@
 package HandleList;
 
+import java.util.Arrays;
+
 import handleMaganement.ObjOrder.SanPham;
 
-public class ListOrder extends SanPham {
+public class ListOrder {
     private SanPham[] products;
 
     public ListOrder() {
-        super("", "", "", 0, false, "", false, "", "");
         this.products = new SanPham[0];
     }
 
-    public ListOrder(String maSanPham, String tenSanPham, String loai, int gia, boolean coDa, String moTaDa,
-            boolean coSize, String size, String ghiChu, SanPham[] products) {
-        super(maSanPham, tenSanPham, loai, gia, coDa, moTaDa, coSize, size, ghiChu);
+    public ListOrder(SanPham[] products) {
         this.products = products;
     }
 
     public SanPham[] getProducts() {
         return products;
-    }
-
-    public void setProducts(SanPham[] products) {
-        this.products = products;
     }
 
     public SanPham findProductByCode(String productCode) {
@@ -33,15 +28,46 @@ public class ListOrder extends SanPham {
         return null;
     }
 
-    public void addToOrder(String productCode, int quantity) {
-        SanPham product = findProductByCode(productCode);
-
+    public void addToOrder(SanPham product, int quantity) {
         if (product != null) {
-            // Thêm logic xử lý khi sản phẩm tồn tại
-            // Ví dụ: thêm vào đơn hàng, hiển thị thông tin, v.v.
-            System.out.println("Thêm sản phẩm vào đơn hàng: " + product.getTenSanPham() + ", Số lượng: " + quantity);
+            if (isProductInOrder(product)) {
+                updateQuantity(product, quantity);
+            } else {
+                addNewProductToOrder(product, quantity);
+            }
         } else {
             System.out.println("Sản phẩm không tồn tại.");
         }
+    }
+
+    private boolean isProductInOrder(SanPham product) {
+        for (SanPham p : products) {
+            if (p.getMaSanPham().equals(product.getMaSanPham())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void updateQuantity(SanPham product, int quantity) {
+        // Thực hiện cập nhật số lượng sản phẩm trong đơn hàng
+        // Ví dụ: tăng số lượng sản phẩm theo quantity
+        System.out.println("Sản phẩm đã tồn tại trong đơn hàng. Cập nhật số lượng.");
+        for (SanPham p : products) {
+            if (p.getMaSanPham().equals(product.getMaSanPham())) {
+                // Thay đổi số lượng sản phẩm
+                p.setGia(p.getGia() + quantity);
+                break;
+            }
+        }
+    }
+
+    private void addNewProductToOrder(SanPham product, int quantity) {
+        // Thêm sản phẩm mới vào đơn hàng
+        // Ví dụ: products = Arrays.copyOf(products, products.length + 1);
+        // products[products.length - 1] = product;
+        System.out.println("Thêm sản phẩm vào đơn hàng: " + product.getTenSanPham() + ", Số lượng: " + quantity);
+        products = Arrays.copyOf(products, products.length + 1);
+        products[products.length - 1] = product;
     }
 }

@@ -8,6 +8,11 @@ Nhân viên pha chế sẽ biết được đơn đặt hiện tại là gì và
  */
 public class BartenderEmployee extends Employee {
     private Order orderCurrent;
+    // Empty Constructor
+    public BartenderEmployee() {
+        super("", "", 0, "", "", "", 0, 0);
+        this.orderCurrent = null;
+    }
 
     public BartenderEmployee(String name, String telephoneNumber, int age, String address, String gender,
             String idEmployee,
@@ -48,10 +53,11 @@ public class BartenderEmployee extends Employee {
     public boolean isProcessingOrder() {
         return orderCurrent != null;
     }
+    
 
     public void notifyOrderCompletion(Order order) {
         System.out.println("Thông báo cho quản lý: Đơn hàng " + order.getOrderId() + " đã hoàn thành.");
 
     }
-    // isProcessingOrder kiem tra don hang co duoc xu li hay k
+    //isProcessingOrder kiem tra don hang co duoc xu li hay k 
 }

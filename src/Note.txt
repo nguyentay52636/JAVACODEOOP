@@ -32,3 +32,54 @@ Kiểm tra và đặt đơn:
 
 Khách hàng kiểm tra lại giỏ hàng và chọn tùy chọn đặt đơn.
 Khi chọn đặt đơn, họ xác nhận và gửi đơn hàng đến nhà hàng.
+
+
+
+
+//--------///
+// Giả sử bạn đã khởi tạo danh sách sản phẩm trong hệ thống của mình
+SanPham[] products = new SanPham[] {
+    new SanPham("SP001", "Sản phẩm 1", 10000),
+    new SanPham("SP002", "Sản phẩm 2", 15000),
+    // Thêm các sản phẩm khác vào đây
+};
+
+// Hàm giả định để kiểm tra xem một sản phẩm có tồn tại trong danh sách sản phẩm hay không
+private static SanPham findProductByCode(String productCode, SanPham[] products) {
+    for (SanPham product : products) {
+        if (product.getMaSanPham().equals(productCode)) {
+            return product;
+        }
+    }
+    return null; // Trả về null nếu không tìm thấy sản phẩm
+}
+
+// ...
+
+// Sử dụng hàm findProductByCode để kiểm tra và lấy thông tin sản phẩm từ mã sản phẩm mới
+SanPham newProduct = findProductByCode(newProductCode, products);
+..=-----,.....
+
+Trong mã bạn đã cung cấp, ManagerEmployee là một lớp kế thừa từ Employee và có thêm các thuộc tính và phương thức để quản lý đơn hàng, bao gồm cả danh sách các đơn hàng đã hoàn thành và các đơn hàng đang chờ xử lý. Dưới đây là một số điểm mà bạn có thể lưu ý:
+
+Danh sách Đơn Hàng Hoàn Thành và Đơn Hàng Đang Chờ:
+
+completedBills: Là danh sách để lưu trữ các đơn hàng đã hoàn thành.
+pendingBills: Là danh sách để lưu trữ các đơn hàng đang chờ xử lý.
+Phương thức placeOrder:
+
+Dùng để đặt đơn đặt hàng vào danh sách đang chờ (pendingBills).
+Phương thức processOrders:
+
+Xử lý các đơn hàng trong danh sách chờ theo thứ tự thời điểm đặt.
+Hiển thị thông báo xác nhận và thêm đơn vào danh sách đã hoàn thành.
+Phương thức displayCompletedOrders:
+
+Hiển thị thông tin về các đơn hàng đã hoàn thành.
+Phương thức confirmOrder:
+
+Xác nhận đơn đặt hàng cho khách hàng và hiển thị thông tin chi tiết về đơn hàng.
+Phương thức calculateTotalAndPrintBill:
+
+Hiển thị hóa đơn và có thể thêm tính năng tính tổng giá trị hóa đơn.
+Lớp ManagerEmployee làm nhiệm vụ giữa giữa nhân viên pha chế (BartenderEmployee) và quản lý các đơn hàng, đảm bảo rằng các đơn hàng được xử lý theo thứ tự thời điểm đặt.

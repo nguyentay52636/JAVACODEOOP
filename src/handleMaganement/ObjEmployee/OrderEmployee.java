@@ -3,38 +3,47 @@ package handleMaganement.ObjEmployee;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import HandleList.ListOrder;
 import handleMaganement.ObjBill.Bill;
 import handleMaganement.ObjCustomer.Customer;
 import handleMaganement.ObjOrder.SanPham;
 
 public class OrderEmployee extends Employee {
-    private ArrayList<Bill> bills;
-    private boolean isDineIn;
-    private int numCustomers;
+	private ArrayList<Bill> bills;
+    private int numOfBills;
+    private boolean isDineIn; // Biến để kiểm tra xem khách hàng dùng tại chỗ hay mang đi
+    private int numCustomers; // Số lượng khách hàng khi dùng tại chỗ
     private String selectedTable;
     private String Status;
+    private BartenderEmployee bartenderEmployee;
+
     Scanner scanner = new Scanner(System.in);
-
-    public OrderEmployee(String name, String telephoneNumber, int age, String address, String gender, String idEmployee,
-            int daysOff, int dayOfWork, ArrayList<Bill> bills, boolean isDineIn, int numCustomers,
-            String selectedTable, String Status, Scanner scanner) {
-        super(name, telephoneNumber, age, address, gender, idEmployee, daysOff, dayOfWork);
-        this.bills = bills;
-        this.isDineIn = isDineIn;
-        this.numCustomers = numCustomers;
-        this.selectedTable = selectedTable;
-        this.Status = Status;
-        this.scanner = scanner;
-    }
-
+    ListOrder listOrder = new ListOrder();
+    
+    // Empty Constructor
     public OrderEmployee() {
-        super(null, null, 0, null, null, null, 0, 0);
-        this.bills = new ArrayList<>();
+        super("", "", 0, "", "", "", 0, 0);
+        this.bills = new ArrayList<Bill>();
+        this.numOfBills = 0;
         this.isDineIn = false;
         this.numCustomers = 0;
-        this.selectedTable = null;
-        this.Status = null;
-        this.scanner = new Scanner(System.in);
+        this.selectedTable = "";
+        this.Status = "Đang Đặt";
+        this.bartenderEmployee = new BartenderEmployee();
+    }
+
+    public OrderEmployee(String name, String telephoneNumber, int age, String address, String gender, String idEmployee,
+            int daysOff, int dayOfWork, Bill[] bills, int numOfBills, boolean isDineIn, int numCustomers,
+            String selectedTable, String status, BartenderEmployee bartenderEmployee, Scanner scanner,
+            ListOrder listOrder) {
+        super(name, telephoneNumber, age, address, gender, idEmployee, daysOff, dayOfWork);
+        this.bills = new ArrayList<Bill>(); // Số lượng hóa đơn tối đa, có thể điều chỉnh theo nhu cầu
+        this.numOfBills = 0;
+        this.isDineIn = false;
+        this.numCustomers = 0;
+        this.selectedTable = "";
+        this.Status = "Đang Đặt"; // Khởi tạo ở trạng thái "Đang Đặt"
+        this.bartenderEmployee = bartenderEmployee;
     }
 
     public ArrayList<Bill> getBills() {
@@ -43,6 +52,14 @@ public class OrderEmployee extends Employee {
 
     public void setBills(ArrayList<Bill> bills) {
         this.bills = bills;
+    }
+
+    public int getNumOfBills() {
+        return numOfBills;
+    }
+
+    public void setNumOfBills(int numOfBills) {
+        this.numOfBills = numOfBills;
     }
 
     public boolean isDineIn() {
@@ -83,6 +100,14 @@ public class OrderEmployee extends Employee {
         Status = status;
     }
 
+    public BartenderEmployee getBartenderEmployee() {
+        return bartenderEmployee;
+    }
+
+    public void setBartenderEmployee(BartenderEmployee bartenderEmployee) {
+        this.bartenderEmployee = bartenderEmployee;
+    }
+
     public Scanner getScanner() {
         return scanner;
     }
@@ -91,12 +116,33 @@ public class OrderEmployee extends Employee {
         this.scanner = scanner;
     }
 
+    public ListOrder getListOrder() {
+        return listOrder;
+    }
+
+    public void setListOrder(ListOrder listOrder) {
+        this.listOrder = listOrder;
+    }
+
+    // Thêm hàm để hỏi khách hàng có dùng tại chỗ hay mang đi
+    public void askDineInOrTakeAway() {
+        System.out.print("Khách hàng có dùng tại chỗ không? (Có(true)/Không(false)): ");
+        this.isDineIn = scanner.nextBoolean();
+        if (isDineIn) {
+            System.out.print("Nhập số lượng khách hàng: ");
+            this.numCustomers = scanner.nextInt();
+            System.out.print("Chọn bàn phù hợp: ");
+            this.selectedTable = scanner.next();
+        }
+    }
+
     private void confirmOrder(Customer customer, Bill bill) {
-        System.out.println("Đơn đặt hàng của khách hàng" + customer.getName() + " đã được xác nhận.");
+        System.out.println("Đơn đặt hàng của khách hàng " + customer.getName() + " đã được xác nhận.");
         System.out.println("Chi tiết đơn hàng:");
         bill.displayBill();
     }
 
+    // tao bill , dat don thong qua ung dung
     public void createBill(Customer customer,ArrayList<SanPham> products,ArrayList<Integer> quantities) {
     	this.Status = "Đang Đặt";
         if ("Đang Đặt".equalsIgnoreCase(this.Status)) {
@@ -107,51 +153,32 @@ public class OrderEmployee extends Employee {
             System.out.println("Không thể đặt đơn khi không ở trạng thái 'Đang Đặt'.");
         }
     }
+    // Hạn chế việc thay đổi khi đơn đã đặt
+    public void changeOrder(Bill bill, SanPham newProduct, int newQuantity) {
+        if ("Đang Đặt".equalsIgnoreCase(this.Status)) {
+        } else {
+            System.out.println("Không thể thay đổi đơn hàng đã đặt.");
+        }
+    }
 
+    // Kiem tra ton tai don hang
+
+    // Phương thức để thay đổi nước uống hoặc thêm/sửa đổi món
     public void modifyOrder(Bill bill) {
         if ("Đang Đặt".equalsIgnoreCase(this.getStatus())) {
             System.out.println("Đơn hàng hiện tại:");
             bill.displayBill();
+            // Hỏi khách hàng muốn thực hiện thay đổi gì
             System.out.println("1. Thay đổi nước uống");
             System.out.println("2. Thêm/Sửa đổi món");
             System.out.print("Chọn hành động (1 hoặc 2): ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Nhập mã sản phẩm mới: ");
-                    String newProductCode = scanner.next();
-                    System.out.println("Nhập số lượng mới: ");
-                    int newQuantity = scanner.nextInt();
-                    for (int i = 0; i < bill.getProducts().size(); i++) {
-                        if (bill.getProducts().get(i).getMaSanPham().equals(newProductCode)) {
-                            bill.getQuantities().set(i, newQuantity);
-                            System.out.println("Thay đổi nước uống thành công.");
-                            break;
-                        }
-                    }
+                    changeDrink(bill);
                     break;
                 case 2:
-                    System.out.println("Nhập mã sản phẩm mới: ");
-                    String newProductCode2 = scanner.next();
-                    System.out.println("Nhập số lượng mới: ");
-                    int newQuantity2 = scanner.nextInt();
-                    boolean found = false;
-                    for (int i = 0; i < bill.getProducts().size(); i++) {
-                        if (bill.getProducts().get(i).getMaSanPham().equals(newProductCode2)) {
-                            int updatedQuantity = bill.getQuantities().get(i) + newQuantity2;
-                            bill.getQuantities().set(i, updatedQuantity);
-                            System.out.println("Thêm/Sửa đổi món thành công.");
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) {
-                        System.out.println("Không tìm thấy sản phẩm trong đơn hàng. Thêm mới...");
-                        // Thêm sản phẩm mới vào đơn hàng
-                        System.out.print("Nhập mã sản phẩm mới: ");
-                        String newProductCode3 = scanner.next();
-                        System.out.println("Thêm món mới thành công.");
-                    }
+                    modifyProduct(bill);
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ.");
@@ -162,4 +189,94 @@ public class OrderEmployee extends Employee {
             System.out.println("Không thể thay đổi đơn hàng đã đặt.");
         }
     }
+
+ // Thay doi nuoc uong
+    private void changeDrink(Bill bill) {
+        // Thực hiện thay đổi nước uống
+        System.out.println("Nhập mã sản phẩm mới: ");
+        String newProductCode = scanner.next();
+        System.out.println("Nhập số lượng mới: ");
+        int newQuantity = scanner.nextInt();
+        // Tìm sản phẩm trong đơn hàng và thay đổi
+        for (int i = 0; i < bill.getProducts().size(); i++) {
+            if (bill.getProducts().get(i).getMaSanPham().equals(newProductCode)) {
+                bill.getQuantities().set(i, newQuantity);
+                System.out.println("Thay đổi nước uống thành công.");
+                break;
+            }
+        }
+    }
+
+    private void modifyProduct(Bill bill) {
+        // Thực hiện thêm/sửa đổi món
+        System.out.println("Nhập mã sản phẩm mới: ");
+        String newProductCode2 = scanner.next();
+        System.out.println("Nhập số lượng mới: ");
+        int newQuantity2 = scanner.nextInt();
+        // Tìm sản phẩm trong đơn hàng và thêm/sửa đổi
+        boolean found = false;
+        for (int i = 0; i < bill.getProducts().size(); i++) {
+            if (bill.getProducts().get(i).getMaSanPham().equals(newProductCode2)) {
+                int currentQuantity = bill.getQuantities().get(i);
+                bill.getQuantities().set(i, currentQuantity + newQuantity2);
+                System.out.println("Thêm/Sửa đổi món thành công.");
+                found = true;
+                break;
+            }
+        }
+        // Nếu sản phẩm chưa có trong đơn hàng, thêm mới
+        if (!found) {
+            // Thêm sản phẩm mới vào đơn hàng
+            System.out.print("Nhập mã sản phẩm mới: ");
+            String newProductCode = scanner.next();
+            // kiem tra san pham ton tai khong
+            SanPham newProduct = listOrder.findProductByCode(newProductCode);
+
+            if (newProduct != null) {
+                System.out.println("Thêm món mới thành công.");
+                bill.getProducts().add(newProduct);
+                bill.getQuantities().add(newQuantity2);
+            } else {
+                System.out.println("Sản phẩm không tồn có trong danh sách sản phẩm. Vui lòng kiểm tra lại mã sản phẩm.");
+            }
+        }
+    }
+
+
+    // hinh thuc thah toan
+    public void processPayment(Bill bill) {
+        if ("Đã Thanh Toán".equalsIgnoreCase(this.Status)) {
+            System.out.println("Đơn hàng đã được thanh toán trước đó.");
+        } else if ("Đang Đặt".equalsIgnoreCase(this.Status)) {
+            // Hiển thị chi tiết đơn hàng
+            System.out.println("Chi tiết đơn hàng:");
+            bill.displayBill();
+
+            // Tính tổng tiền
+            int totalAmount = bill.calculateTotalPrice();
+
+            // Gọi phương thức thanh toán (có thể sử dụng các cổng thanh toán khác nhau như
+            // ví điện tử, thẻ tín dụng, v.v.)
+            boolean paymentSuccess = processPayment(totalAmount);
+
+            if (paymentSuccess) {
+                System.out.println("Thanh toán thành công. Cảm ơn quý khách!");
+                this.Status = "Đã Thanh Toán";
+            } else {
+                System.out.println("Thanh toán thất bại. Vui lòng thử lại sau.");
+            }
+        } else {
+            System.out.println("Không thể thanh toán đơn khi không ở trạng thái 'Đang Đặt'.");
+        }
+    }
+
+    // ... (Các phương thức khác)
+
+    private boolean processPayment(int amount) {
+        // Giả sử rằng thanh toán luôn thành công
+        System.out.println("Đang xử lý thanh toán...");
+        System.out.println("Đã thanh toán thành công: " + amount + " VNĐ");
+        return true;
+    }
+
 }

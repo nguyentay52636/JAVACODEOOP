@@ -1,5 +1,7 @@
 package handleMaganement.ObjOrder;
 
+import java.util.Arrays;
+
 public class SanPham {
     private String maSanPham;
     private String tenSanPham;
@@ -10,9 +12,14 @@ public class SanPham {
     private boolean coSize;
     private String size;
     private String ghiChu;
+    private Addon[] addons;
 
+    public SanPham() {
+
+    }
+    
     public SanPham(String maSanPham, String tenSanPham, String loai, int gia, boolean coDa, String moTaDa,
-            boolean coSize, String size, String ghiChu) {
+            boolean coSize, String size, String ghiChu, Addon[] addons) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
         this.loai = loai;
@@ -22,6 +29,7 @@ public class SanPham {
         this.coSize = coSize;
         this.size = size;
         this.ghiChu = ghiChu;
+        this.addons = addons;
     }
 
     public String getMaSanPham() {
@@ -56,7 +64,7 @@ public class SanPham {
         this.gia = gia;
     }
 
-    public boolean getCoDa() {
+    public boolean isCoDa() {
         return coDa;
     }
 
@@ -94,6 +102,20 @@ public class SanPham {
 
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    public Addon[] getAddons() {
+        return addons;
+    }
+
+    public void setAddons(Addon[] addons) {
+        this.addons = addons;
+    }
+
+    @Override
+    public String toString() {
+        return "Món: " + tenSanPham + ", Loại: " + loai + ", Giá: " + gia + " VND, Ghi chú: " + ghiChu
+                + ", Size: " + size + ", Đá: " + (coDa ? "Có" : "Không") + ", Addons: " + Arrays.toString(addons);
     }
 
 }

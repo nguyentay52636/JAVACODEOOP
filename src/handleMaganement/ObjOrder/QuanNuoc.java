@@ -20,13 +20,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import handleMaganement.ObjCustomer.Customer;
+import handleMaganement.ObjEmployee.ManagerEmployee;
 import handleMaganement.ObjEmployee.OrderEmployee;
 
 public class QuanNuoc {
 
 	// Tạo danh sách sản phẩm
 	private ArrayList<SanPham> menu = new ArrayList<>();
-	private OrderManager orderManager = new OrderManager();
+	private ManagerEmployee managerEmployee = new ManagerEmployee();
 	ArrayList<Integer> quantities = new ArrayList<>();
 	ArrayList<SanPham> monsDaChon = new ArrayList<>();
 	Customer customer = new Customer();
@@ -176,7 +177,16 @@ public class QuanNuoc {
 					String size = attributes[7].trim();
 					String ghiChu = attributes[8].trim();
 
-					SanPham sanPham = new SanPham(maSanPham, tenSanPham, loai, gia, coDa, moTaDa, coSize, size, ghiChu);
+					SanPham sanPham = new SanPham();
+					sanPham.setMaSanPham(maSanPham);
+					sanPham.setTenSanPham(tenSanPham);
+					sanPham.setLoai(loai);
+					sanPham.setGia(gia);
+					sanPham.setCoDa(coDa);
+					sanPham.setMoTaDa(moTaDa);
+					sanPham.setCoSize(coSize);
+					sanPham.setSize(size);
+					sanPham.setGhiChu(ghiChu);
 					menu.add(sanPham);
 				} else {
 					// Handle the case where the attributes array does not have enough elements
