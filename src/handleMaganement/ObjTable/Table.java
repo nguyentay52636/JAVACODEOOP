@@ -10,6 +10,10 @@ public class Table {
     private int capacity; // Số chỗ ngồi
     private boolean occupied;
 
+    public Table() {
+
+    }
+
     public Table(int tableNumber, int capacity, boolean occupied) {
         this.tableNumber = tableNumber;
         this.capacity = capacity;

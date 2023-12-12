@@ -1,12 +1,15 @@
 package handleMaganement;
 
-
 public class Person {
     private String name;
     private String telephoneNumber;
     private int age;
     protected String address;
     private String gender;
+
+    public Person() {
+
+    };
 
     public Person(String name, String telephoneNumber, int age, String address, String gender) {
         this.name = name;

@@ -1,50 +1,4 @@
-// package handleMaganement.ObjOrder;
 
-// import java.util.ArrayList;
-// import java.util.Scanner;
-
-// public class MenuManager {
-//     private ArrayList<SanPham> menu;
-//     Scanner scanner = new Scanner(System.in);
-
-//     public MenuManager() {
-//         this.menu = new ArrayList<>();
-//         // Khởi tạo menu và thêm các sản phẩm vào đây
-//         themSanPhamVaoMenu();
-//     }
-
-//     public ArrayList<SanPham> getMenu() {
-//         return menu;
-//     }
-
-//     public void themSanPhamVaoMenu() {
-//         ArrayList<String> monThemTraSuaDen = new ArrayList<>();
-//         ArrayList<Integer> giaMonThemTraSuaDen = new ArrayList<>();
-//         monThemTraSuaDen.add("Kem");
-//         giaMonThemTraSuaDen.add(2000);
-//         monThemTraSuaDen.add("Trân châu");
-//         giaMonThemTraSuaDen.add(3000);
-
-//         ArrayList<String> monThemTraSuaTranChau = new ArrayList<>();
-//         ArrayList<Integer> giaMonThemTraSuaTranChau = new ArrayList<>();
-//         monThemTraSuaTranChau.add("Kem");
-//         giaMonThemTraSuaTranChau.add(2000);
-
-//         menu.add(new SanPham("1", "Trà sữa đường đen", "Trà sữa", 15000, true, "Không đường", true, "Nhỏ", "Ghi chú",
-//                 null));
-//         menu.add(new SanPham("2", "Trà sữa trân châu", "Trà sữa", 18000, true, "Trân châu trắng", true, "Vừa",
-//                 "Ghi chú", null));
-//         menu.add(
-//                 new SanPham("3", "Cà phê đen", "Cà phê", 12000, true, "Đen không đường", true, "Lớn", "Ghi chú", null));
-//         menu.add(new SanPham("4", "Sinh tố trái cây", "Sinh tố", 25000, false, null, true, "Nhỏ", "Ghi chú", null));
-//     }
-
-//     public boolean askForDineIn() {
-//         System.out.print("Bạn muốn dùng tại quán (1) hay mang đi (2)? ");
-//         int choice = scanner.nextInt();
-//         return choice == 1;
-//     }
-// }
 package handleMaganement.ObjOrder;
 
 import java.io.File;
@@ -59,7 +13,7 @@ public class MenuManager {
     public MenuManager() {
         this.menu = new ArrayList<>();
         // Khởi tạo menu và thêm các sản phẩm vào đây
-        docTuTapTin("/Users/m1lt43/Desktop/DOAN2/Data/SanPham.txt");
+        docTuTapTin("/Users/m1lt43/Desktop/HuyUupdate/SanPham.txt");
     }
 
     public ArrayList<SanPham> getMenu() {

@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import handleMaganement.Person;
-import handleMaganement.ObjOrder.Addon;
 import handleMaganement.ObjOrder.SanPham;
 
 public class Customer extends Person {
@@ -14,14 +13,17 @@ public class Customer extends Person {
     private double discount;
     private boolean customerType;
     private ArrayList<SanPham> order;
-    
- // Empty Constructor
+
+    // Empty Constructor
+    // public Customer() {
+    // super("", "", 0, "", "");
+    // this.isMember = false;
+    // this.birthMonth = 0;
+    // this.discount = 0.0;
+    // this.order = new ArrayList<>();
+    // }
     public Customer() {
-        super("", "", 0, "", "");
-        this.isMember = false;
-        this.birthMonth = 0;
-        this.discount = 0.0;
-        this.order = new ArrayList<>();
+
     }
 
     public Customer(String name, String telephoneNumber, int age, String address, String gender, boolean isMember,
@@ -65,7 +67,7 @@ public class Customer extends Person {
     public void setOrder(ArrayList<SanPham> order) {
         this.order = order;
     }
-    
+
     public boolean isCustomerType() {
         return customerType;
     }
@@ -81,30 +83,34 @@ public class Customer extends Person {
 
     public void createOrder() {
         Scanner scanner = new Scanner(System.in);
+        Customer customer = new Customer();
         System.out.println("Nhập thông tin đơn hàng:");
 
         // Nhập thông tin về khách hàng
         System.out.print("Bạn có muốn đăng ký thành viên không? (1. Có / 2. Không): ");
         int choice = scanner.nextInt();
         boolean isMember = choice == 1;
-
+        if(choice == 2) {
+        	return;
+        }
         if (isMember) {
             System.out.print("Nhập tháng sinh nhật của bạn (1-12): ");
             int birthMonth = scanner.nextInt();
             this.setBirthMonth(birthMonth);
             this.setMember(isMember);
         } else {
-        	this.setMember(false);
+            this.setMember(false);
         }
-//        System.out.print("Nhập số lượng sản phẩm trong đơn hàng: ");
-//
-//        int numberOfProducts = scanner.nextInt();
-//
-//        for (int i = 0; i < numberOfProducts; i++) {
-//            System.out.println("Nhập thông tin cho sản phẩm thứ " + (i + 1) + ":");
-//            SanPham sanPham = createProduct();
-//            order.add(sanPham); // Thêm sản phẩm vào đơn hàng của khách hàng
-//        }
+        // System.out.print("Nhập số lượng sản phẩm trong đơn hàng: ");
+        //
+        // int numberOfProducts = scanner.nextInt();
+        //
+        // for (int i = 0; i < numberOfProducts; i++) {
+        // System.out.println("Nhập thông tin cho sản phẩm thứ " + (i + 1) + ":");
+        // SanPham sanPham = createProduct();
+        // order.add(sanPham); // Thêm sản phẩm vào đơn hàng của khách hàng
+        // }
+        InfoCustomer();
         System.out.println("Đơn hàng đã được tạo!");
     }
 
@@ -142,7 +148,7 @@ public class Customer extends Person {
         System.out.print("Nhập ghi chú: ");
         String ghiChu = scanner.next();
 
-        SanPham sanPham = new SanPham();        
+        SanPham sanPham = new SanPham();
         sanPham.setMaSanPham(maSanPham);
         sanPham.setTenSanPham(tenSanPham);
         sanPham.setLoai(loai);
@@ -156,6 +162,94 @@ public class Customer extends Person {
         return sanPham;
     }
 
+    public void InfoCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập thông tin đơn hàng:");
+
+        // Nhập thông tin về khách hàng
+        System.out.print("Nhập tên khách hàng: ");
+        String customerName = scanner.nextLine();
+
+        // Kiểm tra tên khách hàng không được để trống
+        while (customerName.trim().isEmpty()) {
+            System.out.println("Tên khách hàng không được để trống. Vui lòng nhập lại.");
+            System.out.print("Nhập tên khách hàng: ");
+            customerName = scanner.nextLine();
+        }
+
+        System.out.print("Nhập số điện thoại: ");
+        String customerPhoneNumber = scanner.nextLine();
+
+        // Kiểm tra số điện thoại có đúng định dạng không
+        while (!customerPhoneNumber.matches("\\d{10}")) {
+            System.out.println("Số điện thoại không hợp lệ. Vui lòng nhập lại (10 chữ số).");
+            System.out.print("Nhập số điện thoại: ");
+            customerPhoneNumber = scanner.nextLine();
+        }
+
+        System.out.print("Nhập tuổi: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Tuổi phải là một số. Vui lòng nhập lại.");
+            System.out.print("Nhập tuổi: ");
+            scanner.next(); // Đọc bỏ giá trị không phải số để tránh lặp vô hạn
+        }
+        int age = scanner.nextInt();
+
+        // Kiểm tra tuổi phải lớn hơn 0
+        while (age <= 0) {
+            System.out.println("Tuổi phải lớn hơn 0. Vui lòng nhập lại.");
+            System.out.print("Nhập tuổi: ");
+            age = scanner.nextInt();
+        }
+
+        // Tiêu thụ ký tự mới (new line) còn lại
+        scanner.nextLine();
+
+        System.out.print("Nhập địa chỉ: ");
+        String address = scanner.nextLine();
+
+        // Kiểm tra địa chỉ không được để trống
+        while (address.trim().isEmpty()) {
+            System.out.println("Địa chỉ không được để trống. Vui lòng nhập lại.");
+            System.out.print("Nhập địa chỉ: ");
+            address = scanner.nextLine();
+        }
+
+        System.out.print("Nhập giới tính: ");
+        String gender = scanner.nextLine();
+
+        // Kiểm tra giới tính không được để trống
+        while (gender.trim().isEmpty()) {
+            System.out.println("Giới tính không được để trống. Vui lòng nhập lại.");
+            System.out.print("Nhập giới tính: ");
+            gender = scanner.nextLine();
+        }
+
+        // Hiển thị thông tin khách hàng
+        // System.out.println("\nThông tin khách hàng:");
+        // System.out.println("Tên: " + customerName);
+        // System.out.println("Số điện thoại: " + customerPhoneNumber);
+        // System.out.println("Tuổi: " + age);
+        // System.out.println("Địa chỉ: " + address);
+        // System.out.println("Giới tính: " + gender);
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|                Thông Tin Khách Hàng                   |");
+        System.out.println("+-------------------------------------------------------+");
+
+        System.out.printf("| %-20s | %-30s |\n", "Tên", customerName);
+        System.out.printf("| %-20s | %-30s |\n", "Số Điện Thoại", customerPhoneNumber);
+        System.out.printf("| %-20s | %-30s |\n", "Tuổi", age);
+        System.out.printf("| %-20s | %-30s |\n", "Địa Chỉ", address);
+        System.out.printf("| %-20s | %-30s |\n", "Giới Tính", gender);
+
+        System.out.println("+-------------------------------------------------------+");
+        // Cập nhật thông tin của khách hàng hiện tại
+        this.setName(customerName);
+        this.setAddress(address);
+        this.setGender(gender);
+        this.setTelephoneNumber(customerPhoneNumber);
+        this.setAge(age);
+    }
 
     public void applyDiscount(double totalAmount) {
         if (isMember() && getBirthMonth() == Calendar.getInstance().get(Calendar.MONTH) + 1) {

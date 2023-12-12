@@ -3,7 +3,8 @@ package handleMaganement.ObjTable;
 import java.util.Scanner;
 
 public class TableMenu {
-    public static void displayTableMenu(TableManager tableManager, Scanner scanner) {
+    public static void displayTableMenu(TableManager tableManager) {
+        Scanner scanner = new Scanner(System.in);
         boolean tableMenuFlag = true;
         do {
             System.out.println("Chức năng quản lý bàn:");
@@ -16,13 +17,13 @@ public class TableMenu {
 
             switch (tableChoice) {
                 case 1:
-                    handleTable.addNewTable(tableManager, scanner);
+                    tableManager.addTable(null);
                     break;
                 case 2:
                     tableManager.displayTables();
                     break;
                 case 3:
-                    handleTable.searchTable(tableManager, scanner);
+                    tableManager.findTable(tableChoice);
                     break;
                 case 4:
                     tableMenuFlag = false;
@@ -33,4 +34,7 @@ public class TableMenu {
             }
         } while (tableMenuFlag);
     }
+
+    // Gọi phương thức findTable từ TableManager
+
 }

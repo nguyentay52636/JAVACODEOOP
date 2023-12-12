@@ -12,20 +12,14 @@ public class ManagerEmployee extends Employee {
     // key de tham chieu den nhan vien pha che
     private BartenderEmployee bartenderEmployee;
 
-    
- // Empty Constructor
     public ManagerEmployee() {
-        super("", "", 0, "", "", "", 0, 0);
-        this.completedBills = new ArrayList<>();
-        this.pendingBills = new ArrayList<>();
-        this.bartenderEmployee = new BartenderEmployee("", "", 0, "", "", "", 0, 0, null);
+
     }
-    
-    public ManagerEmployee(String name, String telephoneNumber, int age, String address, String gender,
-            String idEmployee,
-            int daysOff, int dayOfWork, List<Bill> completedBills, List<Bill> pendingBills,
+
+    public ManagerEmployee(String idEmployee, String name, String address, int age, String telephoneNumber,
+            String gender, String position, String salary, List<Bill> completedBills, List<Bill> pendingBills,
             BartenderEmployee bartenderEmployee) {
-        super(name, telephoneNumber, age, address, gender, idEmployee, daysOff, dayOfWork);
+        super(idEmployee, name, address, age, telephoneNumber, gender, position, salary);
         this.completedBills = completedBills;
         this.pendingBills = pendingBills;
         this.bartenderEmployee = bartenderEmployee;

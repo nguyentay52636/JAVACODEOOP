@@ -35,7 +35,7 @@ public class QuanNuoc {
 
 	public QuanNuoc() {
 		// Constructor - Thêm các sản phẩm vào menu ở đây
-		themSanPhamVaoMenu("/home/huy/Documents/vsc/java/JAVACODEOOP/src/data/menu_data.txt");
+		themSanPhamVaoMenu("/home/huy/Documents/Java/projectOOP/src/data/SanPham.txt");
 	}
 
 	public void thucHienChucNang() {
@@ -47,8 +47,6 @@ public class QuanNuoc {
 		customer.setCustomerType(luaChonDungTaiCho == 1);
 		System.out.print("Nhập tổng số lượng nước bạn muốn gọi: ");
 		int tongSoLuong = scanner.nextInt();
-
-		
 
 		int checkSoLuong;
 		int checkTongSoNuoc = 0;
@@ -86,7 +84,7 @@ public class QuanNuoc {
 				// Lưu thông tin vào mảng
 				sanPham.setGhiChu(ghiChu);
 				monsDaChon.add(sanPham);
-				if(checkTongSoNuoc >= tongSoLuong) {
+				if (checkTongSoNuoc >= tongSoLuong) {
 					break;
 				}
 			} else {
@@ -104,57 +102,59 @@ public class QuanNuoc {
 			return;
 		}
 
-//		// Mảng để lưu thông tin về món nước đã chọn
-//		SanPham[] monsDaChon = new SanPham[soLuong];
-//
-//		// Nhập loại món nước cụ thể
-//		for (int i = 0; i < soLuong; i++) {
-//			System.out.print("Nhập loại món nước thứ " + (i + 1) + ": ");
-//			int loaiMonNuoc = scanner.nextInt();
-//
-//			// Kiểm tra xem loại món có tồn tại trong menu không
-//			if (loaiMonNuoc >= 1 && loaiMonNuoc <= menu.size()) {
-//				SanPham sanPham = menu.get(loaiMonNuoc - 1);
-//
-//				// Kiểm tra có uống đá hay không
-//				System.out.print("Có uống đá không? (1. Có / 2. Không): ");
-//				int luaChonDa = scanner.nextInt();
-//				sanPham.setCoDa(luaChonDa == 1);
-//
-//				// Kiểm tra có chọn size hay không
-//				if (sanPham.isCoSize()) {
-//					System.out.print("Chọn size (1. Nhỏ / 2. Vừa / 3. Lớn): ");
-//					int luaChonSize = scanner.nextInt();
-//					sanPham.setSize(getSizeFromChoice(luaChonSize));
-//				}
-//
-//				// Nhập ghi chú cho món nước
-//				System.out.print("Nhập ghi chú cho món nước: ");
-//				scanner.nextLine(); // Đọc bỏ dòng trắng
-//				String ghiChu = scanner.nextLine();
-//
-//				// Lưu thông tin vào mảng
-//				sanPham.setGhiChu(ghiChu);
-//				monsDaChon[i] = sanPham;
-//			} else {
-//				System.out.println("Loại món nước không hợp lệ.");
-//				return;
-//			}
-//		}
+		// // Mảng để lưu thông tin về món nước đã chọn
+		// SanPham[] monsDaChon = new SanPham[soLuong];
+		//
+		// // Nhập loại món nước cụ thể
+		// for (int i = 0; i < soLuong; i++) {
+		// System.out.print("Nhập loại món nước thứ " + (i + 1) + ": ");
+		// int loaiMonNuoc = scanner.nextInt();
+		//
+		// // Kiểm tra xem loại món có tồn tại trong menu không
+		// if (loaiMonNuoc >= 1 && loaiMonNuoc <= menu.size()) {
+		// SanPham sanPham = menu.get(loaiMonNuoc - 1);
+		//
+		// // Kiểm tra có uống đá hay không
+		// System.out.print("Có uống đá không? (1. Có / 2. Không): ");
+		// int luaChonDa = scanner.nextInt();
+		// sanPham.setCoDa(luaChonDa == 1);
+		//
+		// // Kiểm tra có chọn size hay không
+		// if (sanPham.isCoSize()) {
+		// System.out.print("Chọn size (1. Nhỏ / 2. Vừa / 3. Lớn): ");
+		// int luaChonSize = scanner.nextInt();
+		// sanPham.setSize(getSizeFromChoice(luaChonSize));
+		// }
+		//
+		// // Nhập ghi chú cho món nước
+		// System.out.print("Nhập ghi chú cho món nước: ");
+		// scanner.nextLine(); // Đọc bỏ dòng trắng
+		// String ghiChu = scanner.nextLine();
+		//
+		// // Lưu thông tin vào mảng
+		// sanPham.setGhiChu(ghiChu);
+		// monsDaChon[i] = sanPham;
+		// } else {
+		// System.out.println("Loại món nước không hợp lệ.");
+		// return;
+		// }
+		// }
 
 		// Hiển thị thông tin về các món đã chọn
 		System.out.println("Thông tin về các món đã chọn:");
 
-		
 		for (SanPham sanPham : monsDaChon) {
-//			System.out.println("Món: " + sanPham.getTenSanPham() + ", Loại: " + sanPham.getLoai() + ", Giá: "
-//					+ sanPham.getGia() + " VND, Ghi chú: " + sanPham.getGhiChu() + ", Size: " + sanPham.getSize()
-//					+ ", Đá: " + (sanPham.getCoDa() ? "Có" : "Không"));
+			// System.out.println("Món: " + sanPham.getTenSanPham() + ", Loại: " +
+			// sanPham.getLoai() + ", Giá: "
+			// + sanPham.getGia() + " VND, Ghi chú: " + sanPham.getGhiChu() + ", Size: " +
+			// sanPham.getSize()
+			// + ", Đá: " + (sanPham.getCoDa() ? "Có" : "Không"));
 			System.out.println(sanPham.getGia());
 		}
 		customer.createOrder();
+//		customer.InfoCustomer();
 		OrderEmployee orderEmployee = new OrderEmployee();
-		orderEmployee.createBill(customer,monsDaChon,quantities);
+		orderEmployee.createBill(customer, monsDaChon, quantities);
 	}
 	//
 	// orderManager.addOrder(new Order(monsDaChon));
@@ -210,14 +210,14 @@ public class QuanNuoc {
 
 	private static String getSizeFromChoice(int choice) {
 		switch (choice) {
-		case 1:
-			return "Nhỏ";
-		case 2:
-			return "Vừa";
-		case 3:
-			return "Lớn";
-		default:
-			return "Nhỏ"; // Hoặc giá trị mặc định khác tùy theo yêu cầu của bạn
+			case 1:
+				return "Nhỏ";
+			case 2:
+				return "Vừa";
+			case 3:
+				return "Lớn";
+			default:
+				return "Nhỏ"; // Hoặc giá trị mặc định khác tùy theo yêu cầu của bạn
 		}
 	}
 

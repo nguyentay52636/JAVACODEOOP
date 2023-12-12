@@ -9,27 +9,22 @@ Nhân viên pha chế sẽ biết được đơn đặt hiện tại là gì và
 public class BartenderEmployee extends Employee {
     private Order orderCurrent;
     // Empty Constructor
-    public BartenderEmployee() {
-        super("", "", 0, "", "", "", 0, 0);
-        this.orderCurrent = null;
-    }
-
-    public BartenderEmployee(String name, String telephoneNumber, int age, String address, String gender,
-            String idEmployee,
-            int daysOff, int dayOfWork, Order orderCurrent) {
-        super(name, telephoneNumber, age, address, gender, idEmployee, daysOff, dayOfWork);
-        this.orderCurrent = orderCurrent;
-    }
-
-    public Order getOrderCurrent() {
-        return orderCurrent;
-    }
-
-    public void setOrderCurrent(Order orderCurrent) {
-        this.orderCurrent = orderCurrent;
-    }
 
     // qua trinh xu li don hang
+    public BartenderEmployee() {
+
+    }
+
+    public BartenderEmployee(Order orderCurrent) {
+        this.orderCurrent = orderCurrent;
+    }
+
+    public BartenderEmployee(String idEmployee, String name, String address, int age, String telephoneNumber,
+            String gender, String position, String salary, Order orderCurrent) {
+        super(idEmployee, name, address, age, telephoneNumber, gender, position, salary);
+        this.orderCurrent = orderCurrent;
+    }
+
     public void startProcessOrder(Order order) {
         if (orderCurrent == null) {
             System.out.println("Bắt đầu xử lý đơn hàng " + order.getOrderId());
@@ -53,11 +48,18 @@ public class BartenderEmployee extends Employee {
     public boolean isProcessingOrder() {
         return orderCurrent != null;
     }
-    
 
     public void notifyOrderCompletion(Order order) {
         System.out.println("Thông báo cho quản lý: Đơn hàng " + order.getOrderId() + " đã hoàn thành.");
 
     }
-    //isProcessingOrder kiem tra don hang co duoc xu li hay k 
+    // isProcessingOrder kiem tra don hang co duoc xu li hay k
+
+    public Order getOrderCurrent() {
+        return orderCurrent;
+    }
+
+    public void setOrderCurrent(Order orderCurrent) {
+        this.orderCurrent = orderCurrent;
+    }
 }
